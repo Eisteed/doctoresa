@@ -1,8 +1,11 @@
 ** Installer swaks **
+
+Debian / Ubuntu
 ```
-sudo apt-get install swaks  # For Debian/Ubuntu
+sudo apt-get install swaks
 ```
-ou
+
+Centos
 ```
 sudo yum install swaks
 ``` 
