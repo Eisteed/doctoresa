@@ -38,6 +38,11 @@ PAGE_CONTENT=$(./curl_chrome110 $URL \
   -H 'upgrade-insecure-requests: 1' \
   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' \
   --compressed)
+  
+if [ -z "$PAGE_CONTENT" ]; then
+    echo "Erreur curl, page vide."
+    exit 0
+fi
 
 if echo "$PAGE_CONTENT" | grep -q "$SEARCH_TEXT"; then
     echo "Texte '$SEARCH_TEXT' trouvé. Pas d'envoi de mail."
