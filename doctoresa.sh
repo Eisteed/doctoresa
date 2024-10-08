@@ -8,12 +8,12 @@ fi
 URL=$1
 EMAIL=$2
 
-# SMTP server details
+# SMTP
 SMTP_SERVER="mail.example.com"
 USERNAME="user@example.com"
 PASSWORD=""
 
-# Email details
+# Email 
 TO="monmail@example.com"
 FROM="user@example.com"
 
@@ -42,7 +42,6 @@ else
     SUBJECT="Réservation disponible"
     MESSAGE="La réservation est possible à l'URL : $URL"
 
-    # Send the email using swaks
     swaks --to "$TO" --from "$FROM" --header "Subject: '$SUBJECT'" --body "$MESSAGE" \
         --auth LOGIN --auth-user "$USERNAME" --auth-password "$PASSWORD" \
         --server "$SMTP_SERVER"
