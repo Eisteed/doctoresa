@@ -33,9 +33,6 @@ Lignes 13
 SMTP_SERVER="mail.example.com"
 USERNAME="mailquienvoie@example.com"
 PASSWORD="motdepasse"
-
-# Email details
-TO="mailquirecoi@example.com"
 FROM="mailquienvoie@example.com"
 ```
 **5. Executer le script avec ces arguments (doctoresa.sh url mail)**
@@ -55,7 +52,7 @@ doctoresa.sh "https://www.doctolib.fr/medecin-generaliste/paris/**********" "exe
 
 crontab -e
 ```
-*/5 * * * * /home/user/doctoresa.sh "https://www.doctolib.fr/medecin-generaliste/paris/**********" "exemple@mail.com" >/dev/null 2>&1
+*/10 * * * * /home/user/doctoresa.sh "remplacerparurldoctolib" "mailquirecois" >/dev/null 2>&1
 ```
 
 **Si une reservation est disponible un mail est envoyé, par la suite la vérification continue mais un mail ne sera renvoyé à nouveau que au bout de 3h (modifiable dans le script variable DELAY)**
