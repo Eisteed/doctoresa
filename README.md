@@ -1,4 +1,4 @@
-** 1. Installer swaks **
+**1. Installer swaks**
 
 Debian / Ubuntu
 ```
@@ -23,7 +23,7 @@ git clone https://github.com/Eisteed/doctoresa
 chmod +x ./doctoresa/doctoresa.sh
 ```
 
-**4. Editer le script avec vos informations SMTP **
+**4. Editer le script avec vos informations SMTP**
 
 **5. Executer le script avec ces arguments (doctoresa.sh url mail)**
 
@@ -38,7 +38,7 @@ chmod +x ./doctoresa/doctoresa.sh
 doctoresa.sh "https://www.doctolib.fr/medecin-generaliste/paris/**********" "exemple@mail.com"
 ```
 
-** 6. Cron job pour être executer toutes les 10 minutes par exemple **
+**6. Cron job pour être executer toutes les 10 minutes par exemple**
 
 crontab -e
 ```
