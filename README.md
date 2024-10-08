@@ -1,3 +1,12 @@
+** Installer swaks **
+```
+sudo apt-get install swaks  # For Debian/Ubuntu
+```
+ou
+```
+sudo yum install swaks
+``` 
+
 **Télécharger ou copier le script** à l'emplacement de votre choix (exemple : /home/user/doctoresa.sh)
 
 ```
