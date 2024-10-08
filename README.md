@@ -10,10 +10,10 @@ Centos
 sudo yum install swaks
 ``` 
 
-**Télécharger ou copier le script** à l'emplacement de votre choix (exemple : /home/user/doctoresa.sh)
+**Installer le script** à l'emplacement de votre choix 
 
 ```
-wget doctoresa.sh https://raw.githubusercontent.com/Eisteed/doctoresa/refs/heads/main/doctoresa.sh
+git clone https://github.com/Eisteed/doctoresa
 ```
 
 
