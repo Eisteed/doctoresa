@@ -8,15 +8,12 @@ if [ "$#" -ne 2 ]; then
 fi
 
 URL=$1
-EMAIL=$2
+TO=$2
 
 # SMTP
 SMTP_SERVER="mail.example.com"
 USERNAME="user@example.com"
 PASSWORD=""
-
-# Email 
-TO="monmail@example.com"
 FROM="user@example.com"
 
 SEARCH_TEXT="Désolé, la réservation est impossible"
