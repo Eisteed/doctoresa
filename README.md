@@ -27,7 +27,8 @@ chmod +x ./doctoresa/curl-impersonate-chrome
 
 **4. Editer le script avec vos informations SMTP**
 
-Lignes 13 
+Lignes 13
+```
 # SMTP server details
 SMTP_SERVER="mail.example.com"
 USERNAME="mailquienvoie@example.com"
@@ -36,7 +37,7 @@ PASSWORD="motdepasse"
 # Email details
 TO="mailquirecoi@example.com"
 FROM="mailquienvoie@example.com"
-
+```
 **5. Executer le script avec ces arguments (doctoresa.sh url mail)**
 
 1: L'url de la reservation (rendez vous sur doctolib, trouver votre medecin / spécialiste, aller sur sa page, cliquer sur prendre rendez vous, choisir un acte si besoin, lorsque la page affiche pas de reservation disponible copier l'url.)
