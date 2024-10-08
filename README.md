@@ -1,11 +1,15 @@
 **Télécharger ou copier le script** à l'emplacement de votre choix (exemple : /home/user/doctoresa.sh)
 
-```wget doctoresa.sh https://raw.githubusercontent.com/Eisteed/doctoresa/refs/heads/main/doctoresa.sh```
+```
+wget doctoresa.sh https://raw.githubusercontent.com/Eisteed/doctoresa/refs/heads/main/doctoresa.sh
+```
 
 
 **Rendre le script executable :**
 
-```chmod +x doctoresa.sh```
+```
+chmod +x doctoresa.sh
+```
 
 
 **Script bash à lancer avec deux arguments**
