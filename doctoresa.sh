@@ -20,6 +20,7 @@ SMTP_PORT="" # 465 ou 25
 USERNAME="" # mail@example.com
 PASSWORD="" # motdepasse
 FROM="" # mail@example.com
+DELAY=$((3 * 60 * 60))  # Delay en secondes
 
 # Chargement de l'url fourni
 PAGE_CONTENT=$(curl -s "$URL")
@@ -28,13 +29,27 @@ PAGE_CONTENT=$(curl -s "$URL")
 if ! echo "$PAGE_CONTENT" | grep -q "$SEARCH_TEXT"; then
     echo "The text '$SEARCH_TEXT' was found. No email will be sent."
 else
+    # Verification delay
+    if [ -f "$LOCKFILE" ]; then
+        LAST_SENT_TIME=$(cat "$LOCKFILE")
+        CURRENT_TIME=$(date +%s)
+    
+        TIME_SINCE_LAST_SENT=$((CURRENT_TIME - LAST_SENT_TIME))
 
+        if [ "$TIME_SINCE_LAST_SENT" -lt "$DELAY" ]; then
+            echo "Email was sent less than '$DELAY' hours ago. No email will be sent."
+            exit 0
+        fi
+    fi
+    
     # Texte non trouvé, envoi du mail via port 465 (SSL) ou 25 (Non SSL)
     SUBJECT="Réservation disponible"
     MESSAGE="La réservation est possible à l'URL : $URL"
 
     AUTH_LOGIN=$(echo -ne "\0$USERNAME\0$PASSWORD" | base64)
+    
 
+    
     if [ "$SMTP_PORT" -eq "25" ]; then
         {
             echo "EHLO localhost"
