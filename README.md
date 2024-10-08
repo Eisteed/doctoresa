@@ -1,4 +1,4 @@
-** Installer swaks **
+** 1. Installer swaks **
 
 Debian / Ubuntu
 ```
@@ -10,21 +10,22 @@ Centos
 sudo yum install swaks
 ``` 
 
-**Installer le script** à l'emplacement de votre choix 
+**2. Installer le script** à l'emplacement de votre choix 
 
 ```
 git clone https://github.com/Eisteed/doctoresa
 ```
 
 
-**Rendre le script executable :**
+**3. Rendre le script executable :**
 
 ```
-chmod +x doctoresa.sh
+chmod +x ./doctoresa/doctoresa.sh
 ```
 
+**4. Editer le script avec vos informations SMTP **
 
-**Script bash à lancer avec deux arguments**
+**5. Executer le script avec ces arguments (doctoresa.sh url mail)**
 
 1: L'url de la reservation (rendez vous sur doctolib, trouver votre medecin / spécialiste, aller sur sa page, cliquer sur prendre rendez vous, choisir un acte si besoin, lorsque la page affiche pas de reservation disponible copier l'url.)
 
@@ -37,14 +38,11 @@ chmod +x doctoresa.sh
 doctoresa.sh "https://www.doctolib.fr/medecin-generaliste/paris/**********" "exemple@mail.com"
 ```
 
-Vous pouvez ensuite rentrer cette command en cron job pour être executer toutes les minutes / 10 minutes par exemple
+** 6. Cron job pour être executer toutes les 10 minutes par exemple **
 
 crontab -e
 ```
 */5 * * * * /home/user/doctoresa.sh "https://www.doctolib.fr/medecin-generaliste/paris/**********" "exemple@mail.com" >/dev/null 2>&1
 ```
-
-Pour executer la vérification toutes les 5 minutes.
-
 
 **Si une reservation est disponible un mail est envoyé, par la suite la vérification continue mais un mail ne sera renvoyé à nouveau que au bout de 3h (modifiable dans le script variable DELAY)**
