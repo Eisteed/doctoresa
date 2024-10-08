@@ -22,9 +22,20 @@ git clone https://github.com/Eisteed/doctoresa
 ```
 chmod +x ./doctoresa/doctoresa.sh
 chmod +x ./doctoresa/curl_chrome110
+chmod +x ./doctoresa/curl-impersonate-chrome
 ```
 
 **4. Editer le script avec vos informations SMTP**
+
+Lignes 13 
+# SMTP server details
+SMTP_SERVER="mail.example.com"
+USERNAME="mailquienvoie@example.com"
+PASSWORD="motdepasse"
+
+# Email details
+TO="mailquirecoi@example.com"
+FROM="mailquienvoie@example.com"
 
 **5. Executer le script avec ces arguments (doctoresa.sh url mail)**
 
