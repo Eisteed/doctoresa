@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <URL> <EMAIL>"
+    echo "Utilisation: $0 <URL> <EMAIL> (url et mail entre guillemets)"
     exit 1
 fi
 
-URL="$1"
-EMAIL="$2"
+URL=$1
+EMAIL=$2
 
 # SMTP server details
 SMTP_SERVER="mail.example.com"
@@ -23,7 +23,7 @@ SEARCH_TEXT="Désolé, la réservation est impossible"
 DELAY=$((3 * 60 * 60))
 LOCKFILE="/tmp/last_email_sent.lock"
 
-PAGE_CONTENT=$(curl -s "$URL")
+PAGE_CONTENT=$(curl -A "Mozilla/5.0 (Linux; Android 10; SM-G996U Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" -s $URL)
 
 if echo "$PAGE_CONTENT" | grep -q "$SEARCH_TEXT"; then
     echo "The text '$SEARCH_TEXT' was found. No email will be sent."
@@ -43,7 +43,7 @@ else
     MESSAGE="La réservation est possible à l'URL : $URL"
 
     # Send the email using swaks
-    swaks --to "$TO" --from "$FROM" -s "$SUBJECT" --body "$MESSAGE" \
+    swaks --to "$TO" --from "$FROM" --header "Subject: '$SUBJECT'" --body "$MESSAGE" \
         --auth LOGIN --auth-user "$USERNAME" --auth-password "$PASSWORD" \
         --server "$SMTP_SERVER"
 
