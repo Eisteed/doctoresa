@@ -17,10 +17,11 @@ git clone https://github.com/Eisteed/doctoresa
 ```
 
 
-**3. Rendre le script executable :**
+**3. Rendre les scripts executables :**
 
 ```
 chmod +x ./doctoresa/doctoresa.sh
+chmod +x ./doctoresa/curl_chrome110
 ```
 
 **4. Editer le script avec vos informations SMTP**
